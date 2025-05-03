@@ -43,4 +43,30 @@ export const getMemes = async () => {
     console.error('Error fetching memes:', error);
     throw error;
   }
+};
+
+export const deleteMeme = async (id: string) => {
+  try {
+    const { error } = await supabase
+      .from('memes')
+      .delete()
+      .eq('id', id);
+    if (error) throw error;
+  } catch (error) {
+    console.error('Error deleting meme:', error);
+    throw error;
+  }
+};
+
+export const deleteAllMemes = async () => {
+  try {
+    const { error } = await supabase
+      .from('memes')
+      .delete()
+      .neq('id', 0); // deletes all rows
+    if (error) throw error;
+  } catch (error) {
+    console.error('Error deleting all memes:', error);
+    throw error;
+  }
 }; 
