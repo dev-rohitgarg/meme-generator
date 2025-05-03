@@ -1,6 +1,6 @@
-import { HfInference } from '@huggingface/inference';
+// import { HfInference } from '@huggingface/inference';
 
-const hf = new HfInference(import.meta.env.VITE_HUGGINGFACE_API_KEY);
+// const hf = new HfInference(import.meta.env.VITE_HUGGINGFACE_API_KEY);
 
 export const generateCaption = async (imageUrl: string): Promise<string> => {
   try {
